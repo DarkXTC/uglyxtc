@@ -1,0 +1,17 @@
+{
+    "name": "vendor/uglyxtc",
+    "description": "Description of project uglyxtc.",
+    "authors": [
+        {
+            "name": "darkxtc",
+            "email": "darkxtc@darkxtc.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "uglyxtc\\": "./"
+        }
+    },
+    "require": {
+    }
+}
