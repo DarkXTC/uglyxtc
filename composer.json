@@ -13,5 +13,6 @@
         }
     },
     "require": {
+        "michelf/php-markdown": "1.4.*@dev"
     }
 }
