@@ -9,7 +9,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "uglyxtc\\": "./"
+            "UglyXTC\\": "./UglyXTC"
         }
     },
     "require": {
