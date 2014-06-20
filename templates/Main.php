@@ -12,31 +12,32 @@ For the complete license see "LICENSE"
 <html>
     <head>
         <meta charset="UTF-8">
+        <?= $values['meta'] ?>
         <title><?= $values['title'] ?></title>
-        <link rel="stylesheet" href="./web/style/Main.css" />
+        <link rel="stylesheet" href="./style/Main.css" />
     </head>
     <body>
         <header id="header">
-            Ich bin ein HEader
+            <?= $values['title'] ?>
         </header>
         <div class="colmask leftmenu">
             <div class="colright">
                 <div class="col1wrap">
                     <section class="content">
-                        <h1>bla</h1>
-                        <p>test</p>
+                        <?= $values['content']; ?>
                     </section>
                 </div>
                 <nav class="navigation">
                     <ul>
-                        <li>miau1</li>
-                        <li>miau2</li>
+                        <?= $values['menu'] ?>
                     </ul>
                 </nav>
             </div>
         </div>
         <footer id="footer">
-            Ich bin ein Footer
+            License: <a href="<?= Config::getLicenseLink() ?>" alt="License Download"> <?= Config::getLicense() ?></a> <br />
+            <?= Config::getLicenseLong() ?><br />
+            Rendering took: <?= microtime() - $values['start']?>ms
         </footer>
     </body>
 </html>

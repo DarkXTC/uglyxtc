@@ -19,11 +19,12 @@ class Config {
     private static $user = "bruce";
     private static $pass = "mypass";
     private static $host = "localhost";
-    private static $port = "5432";
+    private static $port = "3306";
     private static $db = "testdb";
+    private static $pdo;
 
     public static function getDSN() {
-        return "pgsql:host=" . self::$host . ";port=" . self::$port . ";dbname=" . self::$db . ";user=" . self::$user . ";password=" . self::$pass;
+        return "mysql:host=" . self::$host . ";port=" . self::$port . ";dbname=" . self::$db;
     }
 
     public static function getLicense() {
@@ -36,6 +37,29 @@ class Config {
 
     public static function getLicenseLink() {
         return "http://creativecommons.org/licenses/by-sa/3.0/";
+    }
+
+    public static function getURLBase() {
+        return "localhost/darkxtc/uglyxtc/web/";
+    }
+
+    public static function getUser() {
+        return self::$user;
+    }
+
+    public static function getPass() {
+        return self::$pass;
+    }
+
+    /**
+     * 
+     * @return \PDO
+     */
+    public static function getPDOConnection() {
+        if (!isset(self::$pdo)) {
+            self::$pdo = new \PDO(self::getDSN(), self::getUser(), self::getPass());
+        }
+        return self::$pdo;
     }
 
 }

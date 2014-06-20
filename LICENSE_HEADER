@@ -1,6 +1,9 @@
-/*
- * The MIT License (MIT)
- * 
- * Copyright (c) 2014 DarkXTC
- * For the complete license see "LICENSE"
- */
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}The MIT License (MIT)
+${licensePrefix}Copyright (c) 2014 DarkXTC
+${licensePrefix}For the complete license see "LICENSE"
+<#if licenseLast??>
+${licenseLast}
+</#if>

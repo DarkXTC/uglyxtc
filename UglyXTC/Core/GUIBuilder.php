@@ -14,9 +14,8 @@ namespace UglyXTC\Core;
  */
 class GUIBuilder {
     private $values;
-    private $menustring;
     public function __construct() {
-        $this->values = array();
+        $this->values = array('meta' => "", 'menu' => "");
     }
     
     public function __set($name, $value) {
@@ -29,14 +28,12 @@ class GUIBuilder {
     
     public function show($template) {
         $values = $this->values;
-        $values['menu'] = $this->getMenuString();
-        include dirname(__FILE__) . "/../../web/$template.php";
+        include dirname(__FILE__) . "/../../templates/$template.php";
     }
-    
-    public function getMenuString() {
-        if(!isset($this->menustring)) {
-            $this->menustring = "<ul><li>link1</li></ul>\n";
-        }
-        return $this->menustring;
+    public function addMeta($name, $value) {
+        $this->values['meta'] .= "<meta name=\"$name\" value=\"$value\" />\n";
+    }
+    public function addMenuLink($link, $name, $alt) {
+        $this->values['menu'] .= "<li><a href=\"$link\" alt=\"$alt\">$name</a></li>\n";
     }
 }
